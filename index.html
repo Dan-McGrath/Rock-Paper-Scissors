@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-
+    <main>
+        <header>
+            <div class="title">
+                <h1>Rock Paper Scissors</h1>
+            </div>
+            <div class="subtitle">
+                <p>Can you beat the computer in a best of five!</p>
+            </div>
+        </header>
+        <div class="game-container">
+            <div class="left-side">
+                <div class="game">
+                    <div class="player">
+                        <div class="player__info">
+                            <h3>Player Score</h3>
+                            <p>0</p>
+                        </div>
+                        <div class="user__choice">
+                            <img src="" alt="rock">
+                            <img src="" alt="paper">
+                            <img src="" alt="scissors">
+                        </div>
+                        
+                    </div>
+                    <div class="computer">
+                        <div class="computer__info">
+                            <h3>Computer Score</h3>
+                            <p>0</p>
+                        </div>
+                        <div class="user__choice">
+                            <img src="" alt="rock">
+                            <img src="" alt="paper">
+                            <img src="" alt="scissors">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="button-toggle">
+                    <button class="start-game" data-active="true">Start Game</button>
+                    <button class="reset" data-active="false">Reset Game</button>
+                </div>
+                <button class="next-round" data-active="false">Next Round</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
