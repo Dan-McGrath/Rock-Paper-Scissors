@@ -67,7 +67,7 @@ header {
 
 .game-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     place-items: center;
 }
 
@@ -83,5 +83,42 @@ button[data-active='true']  {
 
 button[data-active='false'] {
     display: none;
+}
+
+.game {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 3rem auto;
+    justify-content: space-evenly;
+    max-width: 800px;
+    background-color: hsla(0, 0%, 0%, 0.534);
+    padding: 2rem 0;
+}
+
+.left-side {
+    width: 100%;
+    margin: auto;
+}
+.choice {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+
+    i {
+        font-size: 2rem;
+        color: palegreen;
+    }
+}
+.info {
+    font-size: 1.3rem;
+    
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }  
 }
 
