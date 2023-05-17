@@ -27,10 +27,10 @@
                             <h3>Player Score</h3>
                             <p data-score="0" id="player-score">0</p>
                         </div>
-                        <div class="choice">
-                            <i class="fa-regular fa-hand-back-fist" data-active="false" id="player-rock"></i>
-                            <i class="fa-regular fa-hand" data-active="false" id="player-paper"></i>
-                            <i class="fa-regular fa-hand-scissors" data-active="false" id="player-scissors"></i>
+                        <div class="choice" data-choice="rock" id="player-choice">
+                            <i class="fa-regular fa-hand-back-fist selection" data-active="false" id="player-rock" data-value="rock"></i>
+                            <i class="fa-regular fa-hand selection" data-active="false" id="player-paper" data-value="paper"></i>
+                            <i class="fa-regular fa-hand-scissors selection" data-active="false" id="player-scissors" data-value="scissors"></i>
                         </div>
                         
                     </div>
@@ -39,11 +39,16 @@
                             <h3>Computer Score</h3>
                             <p data-score="0" id="computer-score">0</p>
                         </div>
-                        <div class="choice">
+                        <div class="choice" data-choice="rock" id="computer-choice">
                             <i class="fa-regular fa-hand-back-fist" data-active="false" id="computer-rock"></i>
                             <i class="fa-regular fa-hand" data-active="false" id="computer-paper"></i>
                             <i class="fa-regular fa-hand-scissors" data-active="false" id="computer-scissors"></i>
                         </div>
+                    </div>
+                    <div class="popup-text">
+                        <p class="computer" data-active="false" id="computer">Computer Wins!</p>
+                        <p class="player" data-active="false" id="player">Player Wins!</p>
+                        <p class="draw" data-active="false" id="draw">Draw!</p>
                     </div>
                 </div>
             </div>
