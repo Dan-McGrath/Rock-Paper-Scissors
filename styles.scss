@@ -48,19 +48,24 @@ input{
 }
 // END RESET
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body {
     text-align: center;
     width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: hsla(0, 0%, 0%, 0.534);
 }
 
 header {
     padding: 1rem;
     h1 {
-        font-size: 2rem;
+        font-size: 3rem;
         font-weight: bold;
     }
 
     p {
+        font-size: 1.3rem;
         padding: 1rem;
     }
 }
@@ -72,13 +77,14 @@ header {
 }
 
 button[data-active='true']  {
-    background: transparent;
+    background: palegreen;
     border: 0;
     border-radius: 9999px;
     padding: 0.8rem;
     font-size: 1rem;
     box-shadow: 0 0 15px 1px steelblue;
-    margin: 1rem 0;
+    margin: 1rem 1rem;
+    font-weight: bold;
 }   
 
 button[data-active='false'] {
@@ -89,10 +95,24 @@ button[data-active='false'] {
     display: flex;
     flex-wrap: nowrap;
     margin: 3rem auto;
-    justify-content: space-evenly;
+    justify-content: center;
     max-width: 800px;
     background-color: hsla(0, 0%, 0%, 0.534);
     padding: 2rem 0;
+    .player,
+    .computer {
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .game {
+        .player,
+        .computer {
+        margin: 2rem;
+        }
+    }
 }
 
 .left-side {
@@ -108,10 +128,17 @@ button[data-active='false'] {
         font-size: 2rem;
         color: palegreen;
     }
+
+    i[data-active='true'] {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
 }
+
+
 .info {
     font-size: 1.3rem;
-    
+    color: skyblue;
     h3 {
         margin-bottom: 1.5rem;
     }
@@ -122,13 +149,101 @@ button[data-active='false'] {
     }  
 }
 
+@media screen and (min-width: 575px) {
+    .choice {
+        gap: 1.5rem;
+
+        i {
+            font-size: 2.5rem;;
+        }
+    }
+
+    .info {
+        font-size: 1.5rem;
+    }
+    button[data-active='true']  {
+
+
+        font-size: 1.5rem;
+
+        margin: 2rem 4rem;
+        font-weight: normal;
+    }   
+    
+
+}
+
+
 .popup-text {
+
+    p {
+
+        position: absolute;
+        top: 35%;
+        left: 30%;
+        width: 8em;
+        margin: 1rem auto;
+        color: skyblue;
+        background-color: hsla(0, 0%, 0%, 0.80);
+        padding: 2rem;
+        border-radius: 10px;  
+    }
     p[data-active='false'] {
         display: none;
+    }
+
+}
+
+@media screen and (min-width: 650px) {
+    .popup-text {
+
+        p {
+            top: 30%;
+            left: 38%;
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .popup-text {
+
+        p {
+            left: 40%;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .popup-text {
+
+        p {
+            left: 43%;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .popup-text {
+
+        p {
+            left: 45%;
+        }
     }
 }
 
 .game-winner {
+    p {
+        background-color: hsla(0, 0%, 0%, 0.60);
+        color: skyblue;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 1rem;
+        border-radius: 5px;
+        width: 90%;
+        margin: auto;
+        line-height: 1.5;
+    }
+    
 
     p[data-active='false'] {
         display: none;
