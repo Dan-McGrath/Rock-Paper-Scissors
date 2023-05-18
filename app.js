@@ -81,6 +81,9 @@ const roundWinner = () => {
 
 const playerSelect = (e) => {
     playerChoice.dataset.choice = e.target.dataset.value;
+    playerRock.removeEventListener('click', playerSelect);
+    playerPaper.removeEventListener('click', playerSelect);
+    playerSciccors.removeEventListener('click', playerSelect);
 
 
     getRandomChoice(choiceArray);
@@ -89,12 +92,46 @@ const playerSelect = (e) => {
 
 }
 
+const game = () => {
+    if (startGame.dataset.active === 'true') {
+        startGame.dataset.active = 'false';
+        resetGame.dataset.active = 'true';
+        nextRound.dataset.active = 'true';
+    }
+    playerRock.addEventListener('click', playerSelect);
+    playerPaper.addEventListener('click', playerSelect);
+    playerSciccors.addEventListener('click', playerSelect);
+    resetGame.addEventListener('click', reset);
+    nextRound.addEventListener('click', round);
+}
 
+const reset = () => {
+    if (resetGame.dataset.active === 'true') {
+        resetGame.dataset.active = 'false';
+        computerScore.innerHTML = 0;
+        playerScore.innerHTML = 0;
+        computerWins.dataset.active ='false';
+        playerWins.dataset.active = 'false';
+        draw.dataset.active = 'false';
+        startGame.dataset.active = 'true';
+        nextRound.dataset.active = 'false';
+        playerRock.removeEventListener('click', playerSelect);
+        playerPaper.removeEventListener('click', playerSelect);
+        playerSciccors.removeEventListener('click', playerSelect);
+    }
+}
 
-playerRock.addEventListener('click', playerSelect);
-playerPaper.addEventListener('click', playerSelect);
-playerSciccors.addEventListener('click', playerSelect);
+const round = () => {
+    if (nextRound.dataset.active === 'true') {
+        playerRock.addEventListener('click', playerSelect);
+        playerPaper.addEventListener('click', playerSelect);
+        playerSciccors.addEventListener('click', playerSelect);
+        computerWins.dataset.active ='false';
+        playerWins.dataset.active = 'false';
+        draw.dataset.active = 'false';
+    }
+}
 
-
+startGame.addEventListener('click', game);
 
 
