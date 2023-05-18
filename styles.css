@@ -121,4 +121,8 @@ button[data-active=false] {
 
 .popup-text p[data-active=false] {
   display: none;
+}
+
+.game-winner p[data-active=false] {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */
