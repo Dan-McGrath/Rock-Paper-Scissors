@@ -145,7 +145,7 @@ const reset = () => {
     playerPaper.removeEventListener('click', playerSelect);
     playerSciccors.removeEventListener('click', playerSelect);
     playerWin.dataset.active = 'false';
-    computerWin.dataset.active = 'true';
+    computerWin.dataset.active = 'false';
 }
 
 const round = () => {
