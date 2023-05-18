@@ -16,11 +16,14 @@ const startGame = document.getElementById("start-game");
 const resetGame = document.getElementById("reset-game");
 const nextRound = document.getElementById("next-round");
 
-const computerWins = document.getElementById('computer');
-const playerWins = document.getElementById('player');
+const computerWinsRound = document.getElementById('computer');
+const playerWinsRound = document.getElementById('player');
 const draw = document.getElementById('draw');
 
-const playerSelection = document.querySelector('.selection')
+const playerSelection = document.querySelector('.selection');
+
+const computerWin = document.getElementById('computer-win');
+const playerWin = document.getElementById('player-win');
 
 
 //Functions
@@ -51,8 +54,16 @@ const getScore = () => {
 
     if (computerScore.dataset.score >= 3) {
         nextRound.dataset.active = 'false';
+        draw.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'false';
+        computerWinsRound.dataset.active = 'false';
+        computerWin.dataset.active = 'true';
     } else if (playerScore.dataset.score >=3) {
         nextRound.dataset.active = 'false';
+        draw.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'false';
+        computerWinsRound.dataset.active = 'false';
+        playerWin.dataset.active = 'true';
     }
 
 }
@@ -60,29 +71,29 @@ const getScore = () => {
 const roundWinner = () => {
     if (playerChoice.dataset.choice === computerChoice.dataset.choice) {
         draw.dataset.active = 'true';
-        playerWins.dataset.active = 'false';
-        computerWins.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'false';
+        computerWinsRound.dataset.active = 'false';
         return 'draw';
     } else if (playerChoice.dataset.choice == 'rock' && computerChoice.dataset.choice == 'scissors') {
         draw.dataset.active = 'false';
-        playerWins.dataset.active = 'true';
-        computerWins.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'true';
+        computerWinsRound.dataset.active = 'false';
         return 'player';
     } else if (playerChoice.dataset.choice == 'paper' && computerChoice.dataset.choice == 'rock') {
         draw.dataset.active = 'false';
-        playerWins.dataset.active = 'true';
-        computerWins.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'true';
+        computerWinsRound.dataset.active = 'false';
         return 'player';
         
     } else if (playerChoice.dataset.choice == 'scissors' && computerChoice.dataset.choice == 'paper') {
         draw.dataset.active = 'false';
-        playerWins.dataset.active = 'true';
-        computerWins.dataset.active = 'false';
+        playerWinsRound.dataset.active = 'true';
+        computerWinsRound.dataset.active = 'false';
         return 'player';
     } else {
         draw.dataset.active = 'false';
-        playerWins.dataset.active = 'false';
-        computerWins.dataset.active = 'true';
+        playerWinsRound.dataset.active = 'false';
+        computerWinsRound.dataset.active = 'true';
         return 'computer';
     }
 }
@@ -125,14 +136,16 @@ const reset = () => {
     playerScore.innerHTML = 0;
     computerScore.dataset.score = '0';
     playerScore.dataset.score = '0';
-    computerWins.dataset.active ='false';
-    playerWins.dataset.active = 'false';
+    computerWinsRound.dataset.active ='false';
+    playerWinsRound.dataset.active = 'false';
     draw.dataset.active = 'false';
     startGame.dataset.active = 'true';
     nextRound.dataset.active = 'false';
     playerRock.removeEventListener('click', playerSelect);
     playerPaper.removeEventListener('click', playerSelect);
     playerSciccors.removeEventListener('click', playerSelect);
+    playerWin.dataset.active = 'false';
+    computerWin.dataset.active = 'true';
 }
 
 const round = () => {
@@ -140,11 +153,12 @@ const round = () => {
         playerRock.addEventListener('click', playerSelect);
         playerPaper.addEventListener('click', playerSelect);
         playerSciccors.addEventListener('click', playerSelect);
-        computerWins.dataset.active ='false';
-        playerWins.dataset.active = 'false';
+        computerWinsRound.dataset.active ='false';
+        playerWinsRound.dataset.active = 'false';
         draw.dataset.active = 'false';
     }
 }
+
 
 
 startGame.addEventListener('click', game);
