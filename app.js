@@ -99,7 +99,8 @@ const roundWinner = () => {
 }
 
 const playerSelect = (e) => {
-    playerChoice.dataset.choice = e.target.dataset.value;
+    playerValue = e.target.dataset.value
+    playerChoice.dataset.choice = playerValue;
     playerRock.removeEventListener('click', playerSelect);
     playerPaper.removeEventListener('click', playerSelect);
     playerSciccors.removeEventListener('click', playerSelect);
@@ -108,7 +109,8 @@ const playerSelect = (e) => {
     getRandomChoice(choiceArray);
     roundWinner();
     getScore();
-
+    getChoices();
+ 
 }
 
 
@@ -146,6 +148,12 @@ const reset = () => {
     playerSciccors.removeEventListener('click', playerSelect);
     playerWin.dataset.active = 'false';
     computerWin.dataset.active = 'false';
+    computerRock.dataset.active = 'false';
+    computerPaper.dataset.active ='false';
+    computerSciccors.dataset.active = 'false';
+    playerRock.dataset.active = 'false';
+    playerPaper.dataset.active ='false';
+    playerSciccors.dataset.active = 'false';
 }
 
 const round = () => {
@@ -156,10 +164,32 @@ const round = () => {
         computerWinsRound.dataset.active ='false';
         playerWinsRound.dataset.active = 'false';
         draw.dataset.active = 'false';
+        computerRock.dataset.active = 'false';
+        computerPaper.dataset.active ='false';
+        computerSciccors.dataset.active = 'false';
+        playerRock.dataset.active = 'false';
+        playerPaper.dataset.active ='false';
+        playerSciccors.dataset.active = 'false';
     }
 }
 
+const getChoices = () => {
+    if (computerChoice.dataset.choice === 'rock') {
+        computerRock.dataset.active = 'true';
+    } else if (computerChoice.dataset.choice === 'paper') {
+        computerPaper.dataset.active ='true';
+    } else if (computerChoice.dataset.choice === 'scissors') {
+        computerSciccors.dataset.active = 'true';
+    } 
 
+    if (playerChoice.dataset.choice === 'rock') {
+        playerRock.dataset.active = 'true';
+    } else if (playerChoice.dataset.choice === 'paper') {
+        playerPaper.dataset.active ='true';
+    } else if (playerChoice.dataset.choice === 'scissors') {
+        playerSciccors.dataset.active = 'true';
+    }
+}
 
 startGame.addEventListener('click', game);
 
